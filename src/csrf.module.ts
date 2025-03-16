@@ -29,26 +29,4 @@ export class CsrfModule {
             exports: [CsrfService],
         };
     }
-
-    // Méthode statique pour configuration asynchrone
-    // static forRootAsync(): DynamicModule {
-    //     return {
-    //         module: CsrfModule,
-    //         imports: [ConfigModule],
-    //         providers: [
-    //         {
-    //             provide: CSRF_MODULE_OPTIONS,
-    //             useFactory: async (configService: ConfigService) => ({
-    //             secret: configService.get<string>('CSRF_SECRET'),
-    //             cookieName: configService.get<string>('CSRF_COOKIE_NAME'),
-    //             }),
-    //             inject: [ConfigService]
-    //         },
-    //         CsrfService,
-    //         CsrfGuard
-    //         ],
-    //         controllers: [CsrfController],
-    //         exports: [CsrfService, CsrfGuard]
-    //     };
-    // }
 }
