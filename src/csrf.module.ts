@@ -1,14 +1,15 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common';
-import { CsrfController } from './csrf.controller';
 import { CsrfService } from './csrf.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CsrfModuleOptions } from './interfaces/csrfModuleOptions.interface';
 import { CSRF_MODULE_OPTIONS } from './constants';
+import { createCsrfDynamicController } from './csrf.dynamic.controller';
 
 @Module({})
 export class CsrfModule {
     // Méthode statique pour configuration synchronisée
     static forRoot(options: CsrfModuleOptions = {}): DynamicModule {
+        const dynamicController = createCsrfDynamicController(options.url || '/csrf');
         const providers: Provider[] =
         [
             {
@@ -24,7 +25,7 @@ export class CsrfModule {
             module: CsrfModule,
             providers: providers,
             imports: [ConfigModule.forRoot()],
-            controllers: [CsrfController],
+            controllers: [dynamicController],
             exports: [CsrfService],
         };
     }
