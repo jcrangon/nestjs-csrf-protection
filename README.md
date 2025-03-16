@@ -87,6 +87,7 @@ the csrf url you will define for the csrf module, you will receive the token in 
 Your front app will have to retrieve the token and place it inside a header name; "x-csrf-token" before you can make a call to
 a csrf protected route.
 
+
 ## Route protection
 
 To protect a route, use the CsrgGuard:
