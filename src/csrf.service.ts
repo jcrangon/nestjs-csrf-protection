@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { doubleCsrf } from 'csrf-csrf';
+import { doubleCsrf, DoubleCsrfUtilities } from 'csrf-csrf';
 import { CsrfModuleOptions } from './interfaces/csrfModuleOptions.interface';
 import { CSRF_MODULE_OPTIONS } from './constants';
 
@@ -21,6 +21,11 @@ export class CsrfService {
         getSecret: () => secret,
         cookieName,
 }    );
+    }
+
+    getProtection(): DoubleCsrfUtilities
+    {
+        return this.csrfProtection;
     }
 
     getToken(req: any, res: any) {

@@ -1,22 +1,15 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { doubleCsrf } from 'csrf-csrf';
+import { CsrfService } from './csrf.service';
 
 @Injectable()
 export class CsrfGuard implements CanActivate {
     private readonly csrfProtection: any;
     
     constructor(
-        private readonly configService: ConfigService,
+        private readonly csrfService: CsrfService,
     )
     {
-        const secret = this.configService.get<string>('CSRF_SECRET');
-        const cookieName = this.configService.get<string>('CSRF_COOKIE_NAME');
-        
-        this.csrfProtection = doubleCsrf({
-            getSecret: () => secret,
-            cookieName
-        });
+        this.csrfProtection = this.csrfService.getProtection()
     }
 
     canActivate(context: ExecutionContext): boolean {
