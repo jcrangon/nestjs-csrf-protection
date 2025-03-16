@@ -1,0 +1,30 @@
+{
+  "name": "nest-csrf-protection",
+  "version": "1.0.0",
+  "description": "installs csrf protection module, controller, service and guarI",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "nestjs",
+    "csrf",
+    "guard",
+    "service",
+    "controller"
+  ],
+  "author": "jc rangon",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^11.0.11",
+    "@nestjs/config": "^4.0.1",
+    "@nestjs/core": "^11.0.11",
+    "cookie-parser": "^1.4.7",
+    "csrf-csrf": "^3.1.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
