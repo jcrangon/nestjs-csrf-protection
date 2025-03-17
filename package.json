@@ -4,6 +4,7 @@
   "description": "installs csrf protection module, controller, service and guarI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/jcrangon/nestjs-csrf-protection",
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },
