@@ -81,7 +81,7 @@ CsrfModule.forRoot({
 })
 ```
 
-the csrf url you will define for the csrf module, you will receive the token in the response body AND in a cookie.
+When making a GET request to the csrf url you will define for the csrf module, you will receive the token in the response body AND a hash of the token in a cookie.
 
 
 Your front app will have to retrieve the token and place it inside a header name; "x-csrf-token" before you can make a call to
@@ -89,7 +89,7 @@ a csrf protected route.
 
 ## Route protection
 
-To protect a route, use the CsrgGuard:
+To protect a route, use the CsrfGuard:
 
 ```javascript
 @UseGuards(CsrfGuard)
@@ -98,3 +98,5 @@ testCsrf(): { message: string } {
     return { message: 'CSRF token is valid' };
 }
 ```
+
+Happy coding !!
