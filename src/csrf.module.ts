@@ -22,8 +22,8 @@ export class CsrfModule {
         ];
     
         return {
-            module: CsrfModule,
             global: options.isGlobal ?? true,
+            module: CsrfModule,
             providers: providers,
             imports: [ConfigModule.forRoot()],
             controllers: [dynamicController],
