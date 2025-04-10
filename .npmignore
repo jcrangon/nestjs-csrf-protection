@@ -2,6 +2,7 @@
 node_modules/
 
 # Ignore TypeScript source and config files
+.vscode/
 src/
 test/
 tsconfig.json
@@ -13,7 +14,6 @@ tsconfig.*.json
 .env
 *.log
 coverage/
-dist/
 
 # Ignore Git files
 .git

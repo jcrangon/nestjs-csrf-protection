@@ -74,7 +74,13 @@ You may then install the package:
 Then you may configure the module inside your app.module.ts: 
 
 ```javascript
+import { CsrfModule } from 'nest-csrf-protection';
+```
+The module is global by default.
+
+```javascript
 CsrfModule.forRoot({
+    isGlobal: false,
     secret: process.env.CSRF_SECRET,
     cookieName: process.env.CSRF_COOKIE_NAME,
     url: '/get-csrf-token', // define the url segment for the route where you request a token
@@ -91,6 +97,10 @@ a csrf protected route.
 ## Route protection
 
 To protect a route, use the CsrfGuard:
+
+```javascript
+import { CsrfGuard } from 'nest-csrf-protection';
+```
 
 ```javascript
 @UseGuards(CsrfGuard)
